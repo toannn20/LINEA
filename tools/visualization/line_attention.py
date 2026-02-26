@@ -70,11 +70,11 @@ def main(args):
 
     # folder path
     main_folder = cfg.output_dir
-    if 'data/wireframe_processed' in args.data_path:
-        append_path = f'{main_folder}/visualization/line_attention_wireframe'
+    if 'data/train' in args.data_path:
+        append_path = f'{main_folder}/visualization/line_attention_train'
 
-    elif 'data/york_processed' in args.data_path:
-        append_path = f'{main_folder}/visualization/line_attention_york'
+    elif 'data/test' in args.data_path:
+        append_path = f'{main_folder}/visualization/line_attention_test'
     os.makedirs(append_path , exist_ok=True)
 
     with torch.no_grad():

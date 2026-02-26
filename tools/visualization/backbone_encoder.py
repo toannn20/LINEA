@@ -60,15 +60,15 @@ def main(args):
 
     # folder path
     main_folder = cfg.output_dir
-    if 'data/wireframe_processed' in args.data_path:
-        backbone_dir = f'{main_folder}/visualization/backbone_wireframe'
-        encoder_dir = f'{main_folder}/visualization/encoder_wireframe'
+    if 'data/train' in args.data_path:
+        backbone_dir = f'{main_folder}/visualization/backbone_train'
+        encoder_dir = f'{main_folder}/visualization/encoder_train'
 
-    elif 'data/york_processed' in args.data_path:
-        backbone_dir = f'{main_folder}/visualization/backbone_york'
-        encoder_dir = f'{main_folder}/visualization/encoder_york'
+    elif 'data/test' in args.data_path:
+        backbone_dir = f'{main_folder}/visualization/backbone_test'
+        encoder_dir = f'{main_folder}/visualization/encoder_test'
     else:
-        raise 'Dataset does not exist. We support only wireframe and york datasets'
+        raise 'Dataset does not exist.'
 
     os.makedirs(backbone_dir , exist_ok=True)
     os.makedirs(encoder_dir, exist_ok=True)

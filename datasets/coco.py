@@ -160,11 +160,11 @@ def build(image_set, args):
     root = Path(args.coco_path)
     mode = 'lines'
     PATHS = {
-        "train": (root / "train2017", root / "annotations" / f'{mode}_train2017.json'),
-        "train_reg": (root / "train2017", root / "annotations" / f'{mode}_train2017.json'),
-        "val": (root / "val2017", root / "annotations" / f'{mode}_val2017.json'),
-        "eval_debug": (root / "val2017", root / "annotations" / f'{mode}_val2017.json'),
-        "test": (root / "test2017", root / "annotations" / 'image_info_test-dev2017.json' ),
+        "train": (root / "train", root / "annotations" / f'{mode}_train_ann.json'),
+        "train_reg": (root / "train", root / "annotations" / f'{mode}_train_ann.json'),
+        "val": (root / "val", root / "annotations" / f'{mode}_val_ann.json'),
+        "eval_debug": (root / "val", root / "annotations" / f'{mode}_val_ann.json'),
+        "test": (root / "test", root / "annotations" / f'{mode}_test_ann.json' ),
     }
 
     # add some hooks to datasets
@@ -191,8 +191,8 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     dataset_debug = CocoDetection(
-            '../data/wireframe_processed/val2017',
-            '../data/wireframe_processed/annotations/lines_val2017.json',
+            '../data/test',
+            '../data/test/annotations/lines_test_ann.json',
             transforms=T.Compose([
                 # T.RandomResize([400, 500, 600]),
                 # T.RandomSizeCrop(384, 600),
